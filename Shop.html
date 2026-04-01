@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>台灣小店 Cambodia</title>
+
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  display:flex;
+  background:#f5f5f5;
+}
+
+/* 左側分類 */
+.sidebar{
+  width:30%;
+  background:#fff;
+  border-right:1px solid #ddd;
+}
+
+.category{
+  padding:15px;
+  border-bottom:1px solid #eee;
+}
+
+.category.active{
+  background:#4a90e2;
+  color:#fff;
+}
+
+/* 右側 */
+.content{
+  width:70%;
+  padding:10px;
+}
+
+/* 商品卡 */
+.product{
+  display:flex;
+  background:#fff;
+  margin-bottom:10px;
+  border-radius:10px;
+  padding:10px;
+  align-items:center;
+}
+
+.product img{
+  width:80px;
+  height:80px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.info{
+  flex:1;
+  margin-left:10px;
+}
+
+.price{
+  background:#ff3b30;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:8px;
+}
+
+/* 浮動按鈕 */
+.floating{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#0088cc;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 左邊分類 -->
+<div class="sidebar">
+
+<div class="category active" onclick="show('drink')">🥤 飲料</div>
+<div class="category" onclick="show('noodle')">🍜 泡麵</div>
+<div class="category" onclick="show('snack')">🍪 零食</div>
+
+</div>
+
+<!-- 右邊商品 -->
+<div class="content">
+
+<!-- 飲料 -->
+<div id="drink" class="group">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc">
+<div class="info">
+<h4>伯朗咖啡</h4>
+<p>240ml</p>
+</div>
+<div class="price">$1.25</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1527169402691-a4c0ee6c4b54">
+<div class="info">
+<h4>奧利多</h4>
+<p>240ml</p>
+</div>
+<div class="price">$1</div>
+</div>
+
+</div>
+
+<!-- 泡麵 -->
+<div id="noodle" class="group" style="display:none">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="info">
+<h4>維力炸醬麵</h4>
+<p>$6 / $36</p>
+</div>
+<div class="price">購買</div>
+</div>
+
+</div>
+
+<!-- 零食 -->
+<div id="snack" class="group" style="display:none">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
+<div class="info">
+<h4>台灣餅乾</h4>
+<p>人氣商品</p>
+</div>
+<div class="price">購買</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- Telegram 浮動 -->
+<a href="https://t.me/taiwan_999999" class="floating">✈️</a>
+
+<script>
+function show(category){
+  document.querySelectorAll('.group').forEach(el=>el.style.display='none');
+  document.getElementById(category).style.display='block';
+
+  document.querySelectorAll('.category').forEach(el=>el.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
